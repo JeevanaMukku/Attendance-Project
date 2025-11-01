@@ -74,6 +74,10 @@ This allows creators to get video ideation and production with minimal effort.
 └────────────────────────┘
 ```
 
+## Workflow
+![Workflow Diagram](https://github.com/user-attachments/assets/dd4646ec-5bc0-404c-9fe8-60be0f64c0d6)
+
+
 ## How the Workflow Operates
 1. **Trigger:** The n8n schedule trigger starts the workflow daily (or manually).
 2. **Idea Generation (Gemini):** Gemini generates a creative before/after transformation video concept including caption, idea, environment, and sound.
