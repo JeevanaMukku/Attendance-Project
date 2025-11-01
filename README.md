@@ -21,8 +21,7 @@ This allows creators to get video ideation and production with minimal effort.
 - **Result Logging:** Saves metadata and video download links in Google Sheets automatically.
 - **Fully No-Code Execution:** Built entirely inside the n8n workflow builder.
 
-## Architecture
-### Tools and Resources
+## Tools and Resources
 | Component | Type | Purpose |
 |------------|------|----------|
 | n8n | Workflow Orchestration | Hosts and runs the full automation pipeline |
@@ -30,53 +29,11 @@ This allows creators to get video ideation and production with minimal effort.
 | LangChain (Think Tool) | AI Tool | Expands ideas into detailed structured prompts |
 | Sisif API | Video Generation API | Creates short AI-generated videos from prompts |
 | Google Sheets | Resource | Saves final video URLs and metadata |
-
-### System Flow
-```text
-┌────────────────────────┐
-│  n8n Trigger (Daily)   │
-└────────────┬───────────┘
-             │
-             ▼
-┌────────────────────────┐
-│  Google Gemini Agent   │
-│  Generates Idea        │
-└────────────┬───────────┘
-             │
-             ▼
-┌────────────────────────┐
-│  LangChain Agent +     │
-│  Think Tool            │
-│  Builds Video Prompt   │
-└────────────┬───────────┘
-             │
-             ▼
-┌────────────────────────┐
-│  Format Code Node      │
-│  Cleans JSON Prompt    │
-└────────────┬───────────┘
-             │
-             ▼
-┌────────────────────────┐
-│  Sisif API HTTP Request│
-│  Generates Video       │
-└────────────┬───────────┘
-             │
-             ▼
-┌────────────────────────┐
-│  Wait Node (Rendering) │
-└────────────┬───────────┘
-             │
-             ▼
-┌────────────────────────┐
-│  Download / URL Fetch  │
-│  + Google Sheets Save  │
-└────────────────────────┘
-```
+    
 
 ## Workflow
-![Workflow Diagram](https://github.com/user-attachments/assets/dd4646ec-5bc0-404c-9fe8-60be0f64c0d6)
-
+Below is the complete n8n workflow showing all nodes and connections:
+![Workflow Diagram](https://github.com/user-attachments/assets/dd4646ec-5bc0-404c-9fe8-60be0f64c0d6)<br>
 
 ## How the Workflow Operates
 1. **Trigger:** The n8n schedule trigger starts the workflow daily (or manually).
